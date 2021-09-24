@@ -58,6 +58,7 @@ jobs:
           # compressed to artifact.7z.001, artifact.7z.002, ...
           # remove -mx=0 for production (uncompress option)
           7z -r -v500m -mx=0 a "${{ matrix.artifact_name }}.7z" "${{ matrix.artifact_name }}/"
+          ls *.7z.* | tee "${{ matrix.artifact_name }}.7z.txt"
 
       - name: Upload splitted archives to Release assets
         uses: svenstaro/upload-release-action@v2
